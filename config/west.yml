@@ -6,7 +6,7 @@ manifest:
       url-base: https://github.com/kyrisu
   projects:
     - name: zmk
-      remote: infused-kim
+      remote: kyrisu
       revision: sofle
       import: app/west.yml
   self:
