@@ -19,9 +19,6 @@
 &left_encoder { resolution = <1>; }
 &right_encoder { resolution = <1>; }
 
-#define TOG_MO(layer) &tog_mo layer layer   // Macro to apply toggle-layer-on-tap/momentary-layer-on-hold to a specific layer
-
-
 / {
 
    // Activate ADJUST layer by pressing raise and lower
@@ -34,13 +31,13 @@
     };
 
     behaviors {
-      tog_mo: behavior_mo_tog {
+      sl_mo: behavior_sl_mo {
           compatible = "zmk,behavior-hold-tap";
-          label = "mo_tog";
+          label = "sl_mo";
           #binding-cells = <2>;
           flavor = "hold-preferred";
           tapping-term-ms = <200>;
-          bindings = <&tog>, <&mo>;
+          bindings = <&sl>, <&mo>;
       };
     };
 
@@ -59,7 +56,7 @@
 &kp TAB   &kp Q  &kp W    &kp E    &kp R     &kp T                       &kp Y  &kp U     &kp I     &kp O    &kp P    &kp BSPC
 &kp GRAVE &kp A  &kp S    &kp D    &kp F     &kp G                       &kp H  &kp J     &kp K     &kp L    &kp SEMI &kp SQT
 &kp LSHFT &kp Z  &kp X    &kp C    &kp V     &kp B  &kp C_MUTE &none     &kp N  &kp M     &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-                 &kp LCTRL &kp LALT &kp LGUI TOG_MO(LOWER) &kp SPACE    &kp RET TOG_MO(RAISE) &kp BSPC &kp RALT  &kp RGUI
+                 &kp LCTRL &kp LALT &kp LGUI &sl_mo LOWER LOWER &kp SPACE    &kp RET &sl_mo RAISE RAISE &kp BSPC &kp RALT  &kp RGUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
