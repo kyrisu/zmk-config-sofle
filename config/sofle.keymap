@@ -16,8 +16,8 @@
 #define RAISE 2
 #define ADJUST 3
 
-&left_encoder { resolution = <1>; };
-&right_encoder { resolution = <1>; };
+&left_encoder { resolution = <4>; };
+&right_encoder { resolution = <4>; };
 / {
 
    // Activate ADJUST layer by pressing raise and lower
@@ -32,7 +32,7 @@
     behaviors {
       sl_mo: behavior_sl_mo {
           compatible = "zmk,behavior-hold-tap";
-          label = "mo_sl";
+          label = "sl_mo";
           #binding-cells = <2>;
           flavor = "hold-preferred";
           tapping-term-ms = <200>;
