@@ -29,6 +29,10 @@ jobs:
       fail-fast: false
       matrix: ${{fromJson(needs.matrix.outputs.matrix)}}
     steps:
+      - name: Install node
+        run: |
+          apt update
+          apt install nodejs -y
       - name: Prepare variables
         id: variables
         run: |
